@@ -1,7 +1,7 @@
 # Yelp-Business-review
 # Yelp Business Reviews Analysis on Snowflake
 
-This project showcases an end-to-end data pipeline and analysis workflow using Snowflake. Yelp's academic dataset, containing business and review information, is loaded from an AWS S3 bucket into Snowflake. The project then demonstrates how to transform this data, perform sentiment analysis using a Python UDF, and derive meaningful insights through various analytical queries.
+This project showcases an end-to-end data pipeline and analysis workflow using Snowflake. Yelp's  dataset, containing business and review information, is loaded from an AWS S3 bucket into Snowflake. The project then demonstrates how to transform this data, perform sentiment analysis using a Python UDF, and derive meaningful insights through various analytical queries.
 
 The SQL scripts containing the implementation for each step described below are located within the project's code folders.
 
