@@ -24,6 +24,7 @@ The SQL scripts containing the implementation for each step described below are 
 *   **In-Database Machine Learning**: Implements a serverless Python function directly within Snowflake for sentiment analysis on review text.
 *   **Data Transformation**: Flattens and structures semi-structured JSON data into relational tables for optimized analytical querying.
 *   **Comprehensive Data Analysis**: Provides a suite of analytical queries to uncover patterns and insights from the Yelp dataset.
+*   **Customer Segmentation & Cohort Retention**: RFM-based user segmentation with named, actionable segments, and monthly acquisition-cohort retention analysis (M1/M3/M6/M12 checkpoints).
 
 ## Prerequisites
 
@@ -72,6 +73,16 @@ With the data cleaned and structured, a wide range of analytical queries are per
 
 *   **Sentiment-Based Analysis**:
     *   Listing the top 10 businesses that receive the most 'Positive' sentiment reviews.
+
+*   **Customer Segmentation — RFM** (`sql/customer_segmentation_rfm.sql`):
+    *   Scores every user on Recency, Frequency, and Engagement breadth (distinct businesses reviewed) using `NTILE(4)`.
+    *   Maps score combinations to actionable segments: **Power Reviewer**, **Promising Newcomer**, **At-Risk Regular**, **One-and-Done**, and **Casual / Lapsed**.
+    *   Produces a stakeholder-facing segment summary — segment size, average recency, review volume, star rating, and positive-sentiment share — so each segment can be matched to a marketing action (nurture, onboard, re-engage, win-back).
+
+*   **Cohort Retention Analysis** (`sql/cohort_retention.sql`):
+    *   Groups users into monthly acquisition cohorts by the month of their first review.
+    *   Computes a full cohort × month-offset retention matrix (share of each cohort still actively reviewing N months after acquisition).
+    *   Includes a wide-format retention table with M1 / M3 / M6 / M12 checkpoints per cohort — the classic retention triangle, ready to chart in Power BI or a notebook.
 
 ## Usage
 
