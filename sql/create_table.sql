@@ -18,6 +18,6 @@ review_text:user_id::string as user_id,
 review_text:stars::number as review_stars,
 review_text:text::string as reviews_text,
 analyze_sentiments(review_text) as sentiments
-from yelp_reviews limit 1000 
+from yelp_reviews;
 
 select * from tbl_yelp_reviews limit 5;
